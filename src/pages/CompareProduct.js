@@ -37,7 +37,6 @@ const CompareProduct = () => {
 
   return (
     <div>
-      <h2>Compare Products</h2>
       <div className="flex flex-wrap justify-center">
         {selectedProducts.map((product) => (
           <div
