@@ -10,7 +10,7 @@ const SideBar = () => {
           <Link to="/">Products</Link>
         </li>
         <li className="text-white py-2 hover:bg-gray-700 cursor-pointer">
-          <Link to="/compareProduct"> Compare Products </Link>
+          <Link to="/compare-page"> Compare Products </Link>
         </li>
       </ul>
     </aside>

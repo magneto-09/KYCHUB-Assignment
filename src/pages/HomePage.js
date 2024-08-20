@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import SideBar from "../components/SideBar";
 import ProductDetailsPage from "./ProductDetailsPage";
-import CompareProduct from "./compareProduct";
+import CompareProduct from "./CompareProduct";
 import { Route, Routes } from "react-router-dom";
 
 const HomePage = () => {
