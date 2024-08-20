@@ -7,11 +7,15 @@ const ProductDetailsPage = () => {
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const navigate = useNavigate();
-  // api  url
+
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await axios.get("https://dummyjson.com/products");
-      setProducts(response.data.products);
+      try {
+        const response = await axios.get("https://dummyjson.com/products");
+        setProducts(response.data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
     };
 
     fetchProducts();
@@ -28,7 +32,7 @@ const ProductDetailsPage = () => {
     }
     setSelectedProducts(updatedSelection);
   };
-  //  table ant design
+
   const columns = [
     {
       title: "Select",
@@ -50,6 +54,9 @@ const ProductDetailsPage = () => {
     {
       title: "Price",
       dataIndex: "price",
+      key: "price",
+      sorter: (a, b) => a.price - b.price,
+      render: (price) => `$${price}`, // Fixed template literal
     },
     {
       title: "Brand",
@@ -60,7 +67,7 @@ const ProductDetailsPage = () => {
       dataIndex: "category",
     },
   ];
-  ///compare-page
+
   const handleCompare = () => {
     navigate("/compare-page", { state: { products: selectedProducts } });
   };
